@@ -54,7 +54,7 @@ export function PostureAnalysis() {
   }
 
   return (
-    <div className="grid gap-6">
+    <div className="grid grid-cols-1 gap-6">
       <Card>
         <CardHeader>
           <CardTitle className="font-headline">每周姿势与专注力报告</CardTitle>
@@ -83,7 +83,7 @@ export function PostureAnalysis() {
           <CardTitle className="font-headline">AI 驱动的改进计划</CardTitle>
           <CardDescription>针对姿势和专注力提升的个性化建议。</CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-6 md:grid-cols-2">
+        <CardContent className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {loading ? (
             <div className="flex h-full min-h-[150px] items-center justify-center md:col-span-2">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
