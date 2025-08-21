@@ -20,7 +20,7 @@ export default function AnalysisPage() {
             </p>
           </div>
           <Tabs defaultValue="eye" className="w-full">
-            <TabsList className="grid w-full grid-cols-1 sm:w-auto sm:grid-cols-3">
+            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
               <TabsTrigger value="eye">
                 <Eye className="mr-2 h-4 w-4" />
                 眼部健康

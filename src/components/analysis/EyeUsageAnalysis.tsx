@@ -42,8 +42,8 @@ export function EyeUsageAnalysis() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-5">
-      <div className="lg:col-span-3">
+    <div className="grid gap-6 md:grid-cols-5">
+      <div className="md:col-span-3">
         <Card>
           <CardHeader>
             <CardTitle className="font-headline">每周眼部使用报告</CardTitle>
@@ -54,9 +54,9 @@ export function EyeUsageAnalysis() {
               <ResponsiveContainer>
                 <BarChart data={eyeUsageData.daily}>
                   <CartesianGrid vertical={false} />
-                  <XAxis dataKey="day" tickLine={false} axisLine={false} tickMargin={8} />
-                  <YAxis yAxisId="left" orientation="left" stroke="hsl(var(--primary))" />
-                  <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--accent))" />
+                  <XAxis dataKey="day" tickLine={false} axisLine={false} tickMargin={8} fontSize={12} />
+                  <YAxis yAxisId="left" orientation="left" stroke="hsl(var(--primary))" fontSize={12} />
+                  <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--accent))" fontSize={12} />
                   <Tooltip cursor={false} content={<ChartTooltipContent />} />
                   <Legend />
                   <Bar dataKey="duration" name="时长 (分钟)" fill="hsl(var(--primary))" yAxisId="left" radius={4} />
@@ -67,7 +67,7 @@ export function EyeUsageAnalysis() {
           </CardContent>
         </Card>
       </div>
-      <div className="lg:col-span-2">
+      <div className="md:col-span-2">
         <Card className="flex h-full flex-col">
           <CardHeader>
             <CardTitle className="font-headline">AI 眼部健康提示</CardTitle>
@@ -83,7 +83,7 @@ export function EyeUsageAnalysis() {
               <div className="rounded-lg border bg-secondary/50 p-4 text-sm">{tips}</div>
             )}
             {!tips && !loading && (
-              <div className="flex h-full items-center justify-center rounded-lg border border-dashed">
+              <div className="flex h-full items-center justify-center rounded-lg border border-dashed p-4">
                 <p className="text-center text-sm text-muted-foreground">
                   点击下方按钮生成您的个性化提示。
                 </p>

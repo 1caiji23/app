@@ -56,8 +56,8 @@ export function EmotionalAnalysis() {
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-5">
-      <div className="lg:col-span-3">
+    <div className="grid gap-6 md:grid-cols-5">
+      <div className="md:col-span-3">
         <Card>
           <CardHeader>
             <CardTitle className="font-headline">每日情绪趋势</CardTitle>
@@ -71,11 +71,13 @@ export function EmotionalAnalysis() {
                   margin={{ top: 5, right: 20, left: -10, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" vertical={false}/>
-                  <XAxis dataKey="time" tickLine={false} axisLine={false} tickMargin={8} />
+                  <XAxis dataKey="time" tickLine={false} axisLine={false} tickMargin={8} fontSize={12} />
                   <YAxis 
                     tickFormatter={(value) => Object.keys(emotionalValueMap).find(key => emotionalValueMap[key] === value) || ''}
                     domain={[0, 5]}
                     ticks={[0, 1, 2, 3, 4, 5]}
+                    fontSize={12}
+                    width={40}
                   />
                   <Tooltip
                     cursor={false}
@@ -97,7 +99,7 @@ export function EmotionalAnalysis() {
           </CardContent>
         </Card>
       </div>
-      <div className="lg:col-span-2">
+      <div className="md:col-span-2">
         <Card className="flex h-full flex-col">
           <CardHeader>
             <CardTitle className="font-headline">AI 情绪管理指导</CardTitle>
@@ -113,7 +115,7 @@ export function EmotionalAnalysis() {
               <div className="whitespace-pre-wrap rounded-lg border bg-secondary/50 p-4 text-sm">{guidance}</div>
             )}
             {!guidance && !loading && (
-              <div className="flex h-full items-center justify-center rounded-lg border border-dashed">
+              <div className="flex h-full items-center justify-center rounded-lg border border-dashed p-4">
                 <p className="text-center text-sm text-muted-foreground">
                   点击下方按钮获取您的个性化指导。
                 </p>

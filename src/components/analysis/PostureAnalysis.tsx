@@ -65,9 +65,9 @@ export function PostureAnalysis() {
             <ResponsiveContainer>
               <BarChart data={postureData.daily}>
                 <CartesianGrid vertical={false} />
-                <XAxis dataKey="day" tickLine={false} axisLine={false} tickMargin={8} />
-                <YAxis yAxisId="left" orientation="left" stroke="hsl(var(--primary))" />
-                <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--accent))" />
+                <XAxis dataKey="day" tickLine={false} axisLine={false} tickMargin={8} fontSize={12} />
+                <YAxis yAxisId="left" orientation="left" stroke="hsl(var(--primary))" fontSize={12} />
+                <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--accent))" fontSize={12} />
                 <Tooltip cursor={false} content={<ChartTooltipContent />} />
                 <Legend />
                 <Bar dataKey="focus" name="专注 (分钟)" fill="hsl(var(--primary))" yAxisId="left" radius={4} />
@@ -100,7 +100,7 @@ export function PostureAnalysis() {
               </div>
             </>
           ) : (
-            <div className="flex h-full min-h-[150px] items-center justify-center rounded-lg border border-dashed md:col-span-2">
+            <div className="flex h-full min-h-[150px] items-center justify-center rounded-lg border border-dashed p-4 md:col-span-2">
               <p className="text-center text-sm text-muted-foreground">
                 点击下方按钮生成您的个性化计划。
               </p>
