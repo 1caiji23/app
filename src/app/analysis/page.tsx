@@ -9,6 +9,7 @@ import {
 import { EyeUsageAnalysis } from '@/components/analysis/EyeUsageAnalysis';
 import { PostureAnalysis } from '@/components/analysis/PostureAnalysis';
 import { EmotionalAnalysis } from '@/components/analysis/EmotionalAnalysis';
+import { DailySummary } from '@/components/analysis/DailySummary';
 
 export default function AnalysisPage() {
   return (
@@ -24,7 +25,7 @@ export default function AnalysisPage() {
               探索您的健康指标并获得 AI 驱动的建议。
             </p>
           </div>
-          <Accordion type="single" collapsible defaultValue="eye" className="w-full wavy-border">
+          <Accordion type="single" collapsible defaultValue="eye" className="mb-8 w-full wavy-border">
             <AccordionItem value="eye">
               <AccordionTrigger className="text-base font-medium hover:no-underline">
                 <div className="flex items-center">
@@ -59,6 +60,9 @@ export default function AnalysisPage() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+          
+          <DailySummary />
+          
         </div>
       </main>
     </div>
