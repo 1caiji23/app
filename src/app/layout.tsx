@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 export const metadata: Metadata = {
   title: 'InsightWell',
   description: '分析用户数据并提供建议',
+  viewport: 'width=device-width, initial-scale=1',
 };
 
 export default function RootLayout({
