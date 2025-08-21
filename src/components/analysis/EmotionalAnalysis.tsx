@@ -57,7 +57,7 @@ export function EmotionalAnalysis() {
 
   return (
     <div className="grid grid-cols-1 gap-6">
-      <Card>
+      <Card className="wavy-border">
         <CardHeader>
           <CardTitle className="font-headline">每日情绪趋势</CardTitle>
           <CardDescription>一天中您的情绪状态的可视化。</CardDescription>
@@ -98,7 +98,7 @@ export function EmotionalAnalysis() {
         </CardContent>
       </Card>
       
-      <Card className="flex h-full flex-col">
+      <Card className="wavy-border flex h-full flex-col">
         <CardHeader>
           <CardTitle className="font-headline">AI 情绪管理指导</CardTitle>
           <CardDescription>接收量身定制的情绪管理建议。</CardDescription>

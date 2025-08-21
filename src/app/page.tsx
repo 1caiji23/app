@@ -50,8 +50,8 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div className="wavy-border rounded-lg bg-card">
-            <Card className="border-0 shadow-none">
+          <Card className="wavy-border bg-card">
+            <div className="border-0 shadow-none">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">眼部使用情况</CardTitle>
                 <Eye className="h-4 w-4 text-muted-foreground" />
@@ -64,10 +64,10 @@ export default function Home() {
                   平均每日屏幕使用时间
                 </p>
               </CardContent>
-            </Card>
-          </div>
-          <div className="wavy-border rounded-lg bg-card">
-            <Card className="border-0 shadow-none">
+            </div>
+          </Card>
+          <Card className="wavy-border bg-card">
+            <div className="border-0 shadow-none">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">坐姿</CardTitle>
                 <Activity className="h-4 w-4 text-muted-foreground" />
@@ -80,10 +80,10 @@ export default function Home() {
                   本周姿势提醒次数
                 </p>
               </CardContent>
-            </Card>
-          </div>
-          <div className="wavy-border rounded-lg bg-card">
-            <Card className="border-0 shadow-none">
+            </div>
+          </Card>
+          <Card className="wavy-border bg-card">
+            <div className="border-0 shadow-none">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">专注时间</CardTitle>
                 <Smile className="h-4 w-4 text-muted-foreground" />
@@ -96,11 +96,11 @@ export default function Home() {
                   本周总专注时长
                 </p>
               </CardContent>
-            </Card>
-          </div>
+            </div>
+          </Card>
         </div>
         <div className="grid gap-4 md:grid-cols-1">
-          <Card>
+          <Card className="wavy-border">
             <CardHeader>
               <CardTitle className="font-headline">详细分析</CardTitle>
               <CardDescription>

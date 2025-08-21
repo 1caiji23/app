@@ -57,7 +57,7 @@ export function PostureAnalysis() {
 
   return (
     <div className="grid grid-cols-1 gap-6">
-      <Card>
+      <Card className="wavy-border">
         <CardHeader>
           <CardTitle className="font-headline">每周姿势数据概览</CardTitle>
           <CardDescription>以下是您每周的详细姿势指标。</CardDescription>
@@ -69,7 +69,7 @@ export function PostureAnalysis() {
           <StatCard label="总专注时长" value={postureData.totalFocusDuration} unit="分钟" />
         </CardContent>
       </Card>
-      <Card>
+      <Card className="wavy-border">
         <CardHeader>
           <CardTitle className="font-headline">每日姿势与专注力报告</CardTitle>
           <CardDescription>您一周内的专注时长和姿势提醒。</CardDescription>
@@ -92,7 +92,7 @@ export function PostureAnalysis() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="wavy-border">
         <CardHeader>
           <CardTitle className="font-headline">AI 驱动的改进计划</CardTitle>
           <CardDescription>针对姿势和专注力提升的个性化建议。</CardDescription>

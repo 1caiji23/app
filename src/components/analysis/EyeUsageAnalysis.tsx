@@ -59,7 +59,7 @@ export function EyeUsageAnalysis() {
 
   return (
     <div className="grid grid-cols-1 gap-6">
-      <Card>
+      <Card className="wavy-border">
         <CardHeader>
           <CardTitle className="font-headline">每周用眼数据概览</CardTitle>
           <CardDescription>以下是您每周的详细用眼指标。</CardDescription>
@@ -74,7 +74,7 @@ export function EyeUsageAnalysis() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="wavy-border">
         <CardHeader>
           <CardTitle className="font-headline">每日用眼趋势</CardTitle>
           <CardDescription>过去一周的屏幕时间和提醒频率。</CardDescription>
@@ -97,7 +97,7 @@ export function EyeUsageAnalysis() {
         </CardContent>
       </Card>
       
-      <Card className="flex h-full flex-col">
+      <Card className="wavy-border flex h-full flex-col">
         <CardHeader>
           <CardTitle className="font-headline">AI 眼部健康提示</CardTitle>
           <CardDescription>根据您的使用模式获取个性化建议。</CardDescription>

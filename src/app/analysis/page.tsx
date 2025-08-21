@@ -24,7 +24,7 @@ export default function AnalysisPage() {
               探索您的健康指标并获得 AI 驱动的建议。
             </p>
           </div>
-          <Accordion type="single" collapsible defaultValue="eye" className="w-full">
+          <Accordion type="single" collapsible defaultValue="eye" className="w-full wavy-border">
             <AccordionItem value="eye">
               <AccordionTrigger className="text-base font-medium hover:no-underline">
                 <div className="flex items-center">
