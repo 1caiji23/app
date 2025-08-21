@@ -56,7 +56,7 @@ export function EmotionalAnalysis() {
   };
 
   return (
-    <div className="grid gap-6 md:grid-cols-5">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-5">
       <div className="md:col-span-3">
         <Card>
           <CardHeader>
