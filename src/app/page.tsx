@@ -18,7 +18,6 @@ import {
   eyeUsageData,
   postureData,
 } from '@/lib/data';
-import { cn } from '@/lib/utils';
 
 export default function Home() {
   const averageEyeUsage =
@@ -51,48 +50,54 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="wavy-border">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">眼部使用情况</CardTitle>
-              <Eye className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">
-                {averageEyeUsage.toFixed(0)} 分钟
-              </div>
-              <p className="text-xs text-muted-foreground">
-                平均每日屏幕使用时间
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="wavy-border">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">坐姿</CardTitle>
-              <Activity className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">
-                +{totalPostureReminders}
-              </div>
-              <p className="text-xs text-muted-foreground">
-                本周姿势提醒次数
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="wavy-border">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">专注时间</CardTitle>
-              <Smile className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">
-                {postureData.totalFocusDuration} 分钟
-              </div>
-              <p className="text-xs text-muted-foreground">
-                本周总专注时长
-              </p>
-            </CardContent>
-          </Card>
+          <div className="wavy-border rounded-lg bg-card">
+            <Card className="border-0 shadow-none">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">眼部使用情况</CardTitle>
+                <Eye className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  {averageEyeUsage.toFixed(0)} 分钟
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  平均每日屏幕使用时间
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="wavy-border rounded-lg bg-card">
+            <Card className="border-0 shadow-none">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">坐姿</CardTitle>
+                <Activity className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  +{totalPostureReminders}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  本周姿势提醒次数
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="wavy-border rounded-lg bg-card">
+            <Card className="border-0 shadow-none">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">专注时间</CardTitle>
+                <Smile className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  {postureData.totalFocusDuration} 分钟
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  本周总专注时长
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
         <div className="grid gap-4 md:grid-cols-1">
           <Card>
