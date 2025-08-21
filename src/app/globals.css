@@ -88,13 +88,10 @@ body {
 }
 
 @layer components {
-  .lace-border {
-    border: 10px solid transparent;
-    border-image: repeating-linear-gradient(45deg, #f06, #f06 5px, transparent 5px, transparent 10px, #0cf 10px, #0cf 15px, transparent 15px, transparent 20px) 20;
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
+  .wavy-border {
+    border: 12px solid;
+    border-image-slice: 1;
+    border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23ff8a00"/><stop offset="100%" stop-color="%23e52e71"/></linearGradient></defs><path d="M 0 8 C 4 0, 12 0, 16 8 S 12 16, 8 16 S 4 16, 0 8" fill="none" stroke="url(%23g)" stroke-width="2" /></svg>');
+    border-image-repeat: round;
   }
 }
