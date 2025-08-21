@@ -57,14 +57,14 @@ export function DailySummary() {
         <CardDescription>猫头鹰博士根据您今日的数据给出的健康速览。</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="flex items-center justify-center md:col-span-1">
+        <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-3">
+          <div className="flex justify-center md:col-span-1">
             <Image 
               src="https://storage.googleapis.com/stabl-public-asset/insightwell/owl-2.png" 
               alt="猫头鹰博士" 
               width={200} 
               height={200}
-              className="h-auto w-40"
+              className="h-auto w-32 sm:w-40"
               data-ai-hint="cartoon owl"
             />
           </div>
