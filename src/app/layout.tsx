@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { BackgroundSelector } from '@/components/BackgroundSelector';
 
 export const metadata: Metadata = {
-  title: 'InsightWell',
+  title: '潮瞳派',
   description: '分析用户数据并提供建议',
   viewport: 'width=device-width, initial-scale=1',
 };
