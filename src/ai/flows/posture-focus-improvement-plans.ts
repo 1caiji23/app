@@ -11,16 +11,18 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const PostureFocusInputSchema = z.object({
-  postureReminderCount: z
+  totalReminderCount: z
     .number()
-    .describe('The number of posture reminders triggered.'),
-  postureStatus: z.string().describe('The current posture status of the user.'),
-  focusDuration: z
-    .number()
-    .describe('The duration for which the user was focused (in minutes).'),
-  focusTimePeriods: z
+    .describe('The total number of posture reminders triggered over the week.'),
+  mostFrequentStatus: z
     .string()
-    .describe('The time periods when the user was focused.'),
+    .describe('The most frequent posture status observed during the week.'),
+  longestCorrectDuration: z
+    .number()
+    .describe('The longest single-day duration of correct posture in minutes.'),
+  dailyData: z
+    .string()
+    .describe('JSON string of daily posture data (reminders, status, focus duration).'),
 });
 export type PostureFocusInput = z.infer<typeof PostureFocusInputSchema>;
 
@@ -46,16 +48,21 @@ const prompt = ai.definePrompt({
 
   根据用户的姿势和专注力数据，为姿势矫正和专注力提升提供个性化建议。
 
-  请考虑以下信息：
+  请考虑以下每周摘要和每日详细信息：
 
-  姿势提醒次数：{{{postureReminderCount}}}
-  姿势状态：{{{postureStatus}}}
-  专注时长：{{{focusDuration}}} 分钟
-  专注时间段：{{{focusTimePeriods}}}
+  每周摘要：
+  - 本周姿势提醒总次数：{{{totalReminderCount}}}
+  - 本周最频繁的姿势状态：'{{{mostFrequentStatus}}}'
+  - 单日最长正确姿势（专注）时长：{{{longestCorrectDuration}}} 分钟
+
+  每日详细数据 (JSON格式):
+  \`\`\`json
+  {{{dailyData}}}
+  \`\`\`
 
   为姿势和专注力两方面提供具体且可操作的建议。
-  提供有助于纠正姿势的技巧。
-  提供有助于用户更好地专注的技巧。
+  - 基于最频繁的姿势状态和提醒次数，提供有助于纠正姿势的技巧。
+  - 基于专注时长数据和每日趋势，提供有助于用户更好地专注的技巧。
   `,
 });
 

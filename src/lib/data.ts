@@ -40,7 +40,25 @@ export const postureData = {
     { day: '周日', reminders: 3, status: '优秀', focus: 90 },
   ],
   focusTimePeriods: '主要在工作日的上午10点到下午1点和下午3点到6点。',
-  totalFocusDuration: 1700,
+  get totalFocusDuration() {
+    return this.daily.reduce((acc, cur) => acc + cur.focus, 0);
+  },
+  get totalReminders() {
+    return this.daily.reduce((acc, cur) => acc + cur.reminders, 0);
+  },
+  get mostFrequentStatus() {
+    const counts = this.daily.reduce((acc, cur) => {
+      acc[cur.status] = (acc[cur.status] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+    return Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+  },
+  get longestCorrectDuration() {
+    const correctDurations = this.daily
+      .filter(d => d.status === '良好' || d.status === '优秀')
+      .map(d => d.focus);
+    return correctDurations.length > 0 ? Math.max(...correctDurations) : 0;
+  }
 };
 
 export const emotionalData = {

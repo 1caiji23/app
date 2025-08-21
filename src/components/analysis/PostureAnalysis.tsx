@@ -1,15 +1,26 @@
 'use client';
 
 import { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { postureData } from '@/lib/data';
 import { getPostureFocusPlan } from '@/lib/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
+import { ChartContainer, ChartTooltipContent, ChartLegend } from '@/components/ui/chart';
 import type { PostureFocusOutput } from '@/ai/flows/posture-focus-improvement-plans';
+
+function StatCard({ label, value, unit }: { label: string; value: string | number; unit: string }) {
+  return (
+    <div className="flex flex-col items-center justify-center rounded-lg bg-secondary/50 p-4 text-center">
+      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className="text-lg font-bold text-primary">
+        {value} <span className="text-sm font-normal text-muted-foreground">{unit}</span>
+      </p>
+    </div>
+  );
+}
 
 export function PostureAnalysis() {
   const [loading, setLoading] = useState(false);
@@ -19,20 +30,11 @@ export function PostureAnalysis() {
   const handleAnalysis = async () => {
     setLoading(true);
     setPlan(null);
-    const postureStatusCounts = postureData.daily.reduce((acc, cur) => {
-      acc[cur.status] = (acc[cur.status] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
-
-    const dominantPosture = Object.keys(postureStatusCounts).reduce((a, b) =>
-      postureStatusCounts[a] > postureStatusCounts[b] ? a : b
-    );
-
     const input = {
-      postureReminderCount: postureData.daily.reduce((sum, d) => sum + d.reminders, 0),
-      postureStatus: dominantPosture,
-      focusDuration: postureData.totalFocusDuration,
-      focusTimePeriods: postureData.focusTimePeriods,
+      totalReminderCount: postureData.totalReminders,
+      mostFrequentStatus: postureData.mostFrequentStatus,
+      longestCorrectDuration: postureData.longestCorrectDuration,
+      dailyData: JSON.stringify(postureData.daily),
     };
     
     const result = await getPostureFocusPlan(input);
@@ -57,7 +59,19 @@ export function PostureAnalysis() {
     <div className="grid grid-cols-1 gap-6">
       <Card>
         <CardHeader>
-          <CardTitle className="font-headline">每周姿势与专注力报告</CardTitle>
+          <CardTitle className="font-headline">每周姿势数据概览</CardTitle>
+          <CardDescription>以下是您每周的详细姿势指标。</CardDescription>
+        </CardHeader>
+        <CardContent className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <StatCard label="总提醒次数" value={postureData.totalReminders} unit="次/周" />
+          <StatCard label="高频坐姿状态" value={postureData.mostFrequentStatus} unit="" />
+          <StatCard label="最长正确专注" value={postureData.longestCorrectDuration} unit="分钟" />
+          <StatCard label="总专注时长" value={postureData.totalFocusDuration} unit="分钟" />
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle className="font-headline">每日姿势与专注力报告</CardTitle>
           <CardDescription>您一周内的专注时长和姿势提醒。</CardDescription>
         </CardHeader>
         <CardContent>
@@ -69,7 +83,7 @@ export function PostureAnalysis() {
                 <YAxis yAxisId="left" orientation="left" stroke="hsl(var(--primary))" fontSize={12} />
                 <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--accent))" fontSize={12} />
                 <Tooltip cursor={false} content={<ChartTooltipContent />} />
-                <Legend />
+                <ChartLegend content={<ChartTooltipContent />} />
                 <Bar dataKey="focus" name="专注 (分钟)" fill="hsl(var(--primary))" yAxisId="left" radius={4} />
                 <Bar dataKey="reminders" name="提醒" fill="hsl(var(--accent))" yAxisId="right" radius={4} />
               </BarChart>
@@ -92,11 +106,11 @@ export function PostureAnalysis() {
             <>
               <div className="space-y-2">
                 <h3 className="font-semibold text-foreground">姿势建议</h3>
-                <p className="rounded-lg border bg-secondary/50 p-4 text-sm">{plan.postureRecommendations}</p>
+                <p className="whitespace-pre-wrap rounded-lg border bg-secondary/50 p-4 text-sm">{plan.postureRecommendations}</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-semibold text-foreground">专注力建议</h3>
-                <p className="rounded-lg border bg-secondary/50 p-4 text-sm">{plan.focusRecommendations}</p>
+                <p className="whitespace-pre-wrap rounded-lg border bg-secondary/50 p-4 text-sm">{plan.focusRecommendations}</p>
               </div>
             </>
           ) : (
