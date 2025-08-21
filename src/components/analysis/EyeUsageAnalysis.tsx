@@ -42,8 +42,8 @@ export function EyeUsageAnalysis() {
   }
 
   return (
-    <div className="grid gap-6 md:grid-cols-5">
-      <div className="md:col-span-3">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+      <div className="lg:col-span-3">
         <Card>
           <CardHeader>
             <CardTitle className="font-headline">每周眼部使用报告</CardTitle>
@@ -67,7 +67,7 @@ export function EyeUsageAnalysis() {
           </CardContent>
         </Card>
       </div>
-      <div className="md:col-span-2">
+      <div className="lg:col-span-2">
         <Card className="flex h-full flex-col">
           <CardHeader>
             <CardTitle className="font-headline">AI 眼部健康提示</CardTitle>
