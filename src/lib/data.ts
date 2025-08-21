@@ -39,7 +39,6 @@ export const postureData = {
     { day: '周六', reminders: 5, status: '优秀', focus: 120 },
     { day: '周日', reminders: 3, status: '优秀', focus: 90 },
   ],
-  focusTimePeriods: '主要在工作日的上午10点到下午1点和下午3点到6点。',
   get totalFocusDuration() {
     return this.daily.reduce((acc, cur) => acc + cur.focus, 0);
   },
