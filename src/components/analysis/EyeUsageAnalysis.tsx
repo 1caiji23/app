@@ -29,7 +29,7 @@ export function EyeUsageAnalysis() {
     } else {
       toast({
         variant: 'destructive',
-        title: 'Error',
+        title: '错误',
         description: result.error,
       });
     }
@@ -37,8 +37,8 @@ export function EyeUsageAnalysis() {
   };
 
   const chartConfig = {
-    duration: { label: "Duration (min)", color: "hsl(var(--primary))" },
-    reminders: { label: "Reminders", color: "hsl(var(--accent))" },
+    duration: { label: "时长 (分钟)", color: "hsl(var(--primary))" },
+    reminders: { label: "提醒次数", color: "hsl(var(--accent))" },
   }
 
   return (
@@ -46,8 +46,8 @@ export function EyeUsageAnalysis() {
       <div className="lg:col-span-3">
         <Card>
           <CardHeader>
-            <CardTitle className="font-headline">Weekly Eye Usage Report</CardTitle>
-            <CardDescription>Screen time and reminder frequency over the past week.</CardDescription>
+            <CardTitle className="font-headline">每周眼部使用报告</CardTitle>
+            <CardDescription>过去一周的屏幕时间和提醒频率。</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[300px] w-full">
@@ -59,8 +59,8 @@ export function EyeUsageAnalysis() {
                   <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--accent))" />
                   <Tooltip cursor={false} content={<ChartTooltipContent />} />
                   <Legend />
-                  <Bar dataKey="duration" name="Duration (min)" fill="hsl(var(--primary))" yAxisId="left" radius={4} />
-                  <Bar dataKey="reminders" name="Reminders" fill="hsl(var(--accent))" yAxisId="right" radius={4} />
+                  <Bar dataKey="duration" name="时长 (分钟)" fill="hsl(var(--primary))" yAxisId="left" radius={4} />
+                  <Bar dataKey="reminders" name="提醒次数" fill="hsl(var(--accent))" yAxisId="right" radius={4} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
@@ -70,8 +70,8 @@ export function EyeUsageAnalysis() {
       <div className="lg:col-span-2">
         <Card className="flex h-full flex-col">
           <CardHeader>
-            <CardTitle className="font-headline">AI-Powered Eye Health Tips</CardTitle>
-            <CardDescription>Get personalized advice based on your usage patterns.</CardDescription>
+            <CardTitle className="font-headline">AI 眼部健康提示</CardTitle>
+            <CardDescription>根据您的使用模式获取个性化建议。</CardDescription>
           </CardHeader>
           <CardContent className="flex-grow">
             {loading && (
@@ -85,7 +85,7 @@ export function EyeUsageAnalysis() {
             {!tips && !loading && (
               <div className="flex h-full items-center justify-center rounded-lg border border-dashed">
                 <p className="text-center text-sm text-muted-foreground">
-                  Click the button below to generate your personalized tips.
+                  点击下方按钮生成您的个性化提示。
                 </p>
               </div>
             )}
@@ -95,10 +95,10 @@ export function EyeUsageAnalysis() {
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Analyzing...
+                  分析中...
                 </>
               ) : (
-                'Generate My Eye Health Plan'
+                '生成我的眼部健康计划'
               )}
             </Button>
           </CardFooter>

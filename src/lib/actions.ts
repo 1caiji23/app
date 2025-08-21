@@ -10,7 +10,7 @@ export async function getEyeHealthTips(input: EyeHealthInput) {
     return { success: true, data: result };
   } catch (error) {
     console.error(error);
-    return { success: false, error: 'Failed to get eye health tips.' };
+    return { success: false, error: '获取眼部健康提示失败。' };
   }
 }
 
@@ -20,7 +20,7 @@ export async function getPostureFocusPlan(input: PostureFocusInput) {
     return { success: true, data: result };
   } catch (error) {
     console.error(error);
-    return { success: false, error: 'Failed to get posture and focus plan.' };
+    return { success: false, error: '获取姿势和专注力计划失败。' };
   }
 }
 
@@ -30,6 +30,6 @@ export async function getEmotionalGuidance(input: EmotionalManagementInput) {
     return { success: true, data: result };
   } catch (error) {
     console.error(error);
-    return { success: false, error: 'Failed to get emotional guidance.' };
+    return { success: false, error: '获取情绪指导失败。' };
   }
 }

@@ -41,7 +41,7 @@ export function PostureAnalysis() {
     } else {
       toast({
         variant: 'destructive',
-        title: 'Error',
+        title: '错误',
         description: result.error,
       });
     }
@@ -49,16 +49,16 @@ export function PostureAnalysis() {
   };
   
   const chartConfig = {
-    focus: { label: "Focus (min)", color: "hsl(var(--primary))" },
-    reminders: { label: "Reminders", color: "hsl(var(--accent))" },
+    focus: { label: "专注 (分钟)", color: "hsl(var(--primary))" },
+    reminders: { label: "提醒", color: "hsl(var(--accent))" },
   }
 
   return (
     <div className="grid gap-6">
       <Card>
         <CardHeader>
-          <CardTitle className="font-headline">Weekly Posture & Focus Report</CardTitle>
-          <CardDescription>Your focus duration and posture reminders throughout the week.</CardDescription>
+          <CardTitle className="font-headline">每周姿势与专注力报告</CardTitle>
+          <CardDescription>您一周内的专注时长和姿势提醒。</CardDescription>
         </CardHeader>
         <CardContent>
           <ChartContainer config={chartConfig} className="h-[300px] w-full">
@@ -70,8 +70,8 @@ export function PostureAnalysis() {
                 <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--accent))" />
                 <Tooltip cursor={false} content={<ChartTooltipContent />} />
                 <Legend />
-                <Bar dataKey="focus" name="Focus (min)" fill="hsl(var(--primary))" yAxisId="left" radius={4} />
-                <Bar dataKey="reminders" name="Reminders" fill="hsl(var(--accent))" yAxisId="right" radius={4} />
+                <Bar dataKey="focus" name="专注 (分钟)" fill="hsl(var(--primary))" yAxisId="left" radius={4} />
+                <Bar dataKey="reminders" name="提醒" fill="hsl(var(--accent))" yAxisId="right" radius={4} />
               </BarChart>
             </ResponsiveContainer>
           </ChartContainer>
@@ -80,8 +80,8 @@ export function PostureAnalysis() {
 
       <Card>
         <CardHeader>
-          <CardTitle className="font-headline">AI-Powered Improvement Plan</CardTitle>
-          <CardDescription>Personalized recommendations for posture and focus enhancement.</CardDescription>
+          <CardTitle className="font-headline">AI 驱动的改进计划</CardTitle>
+          <CardDescription>针对姿势和专注力提升的个性化建议。</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6 md:grid-cols-2">
           {loading ? (
@@ -91,18 +91,18 @@ export function PostureAnalysis() {
           ) : plan ? (
             <>
               <div className="space-y-2">
-                <h3 className="font-semibold text-foreground">Posture Recommendations</h3>
+                <h3 className="font-semibold text-foreground">姿势建议</h3>
                 <p className="rounded-lg border bg-secondary/50 p-4 text-sm">{plan.postureRecommendations}</p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-semibold text-foreground">Focus Recommendations</h3>
+                <h3 className="font-semibold text-foreground">专注力建议</h3>
                 <p className="rounded-lg border bg-secondary/50 p-4 text-sm">{plan.focusRecommendations}</p>
               </div>
             </>
           ) : (
             <div className="flex h-full min-h-[150px] items-center justify-center rounded-lg border border-dashed md:col-span-2">
               <p className="text-center text-sm text-muted-foreground">
-                Click the button below to generate your personalized plan.
+                点击下方按钮生成您的个性化计划。
               </p>
             </div>
           )}
@@ -112,10 +112,10 @@ export function PostureAnalysis() {
             {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Generating Plan...
+                正在生成计划...
               </>
             ) : (
-              'Generate My Improvement Plan'
+              '生成我的改进计划'
             )}
           </Button>
         </CardFooter>

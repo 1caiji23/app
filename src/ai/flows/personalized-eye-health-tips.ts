@@ -31,15 +31,15 @@ const prompt = ai.definePrompt({
   name: 'eyeHealthPrompt',
   input: {schema: EyeHealthInputSchema},
   output: {schema: EyeHealthOutputSchema},
-  prompt: `You are an expert in eye health and provide personalized recommendations based on user data.
+  prompt: `你是一位眼科健康专家，根据用户数据提供个性化的建议。所有回答请使用中文。
 
-  Based on the following data, provide actionable and specific recommendations for improving eye health:
+  根据以下数据，为改善眼部健康提供可操作的具体建议：
 
-  Eye Usage Duration: {{eyeUsageDuration}} minutes
-  Eye Usage Reminder Count: {{eyeUsageReminderCount}}
-  Eye Usage Distance: {{eyeUsageDistance}} cm
+  眼部使用时长：{{eyeUsageDuration}} 分钟
+  眼部使用提醒次数：{{eyeUsageReminderCount}}
+  与屏幕的平均距离：{{eyeUsageDistance}} 厘米
 
-  Focus on recommending specific changes to habits or environment to reduce eye strain and improve overall eye health. The recommendations should be no more than 3 sentences.
+  专注于推荐具体的习惯或环境改变，以减少眼部疲劳，改善整体眼部健康。建议不超过3句话。
   `,
 });
 

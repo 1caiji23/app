@@ -13,25 +13,25 @@ export default function AnalysisPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-6">
             <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-              Behavior Data Analysis
+              行为数据分析
             </h1>
             <p className="mt-2 text-muted-foreground">
-              Explore your well-being metrics and get AI-driven recommendations.
+              探索您的健康指标并获得 AI 驱动的建议。
             </p>
           </div>
           <Tabs defaultValue="eye" className="w-full">
             <TabsList className="grid w-full grid-cols-1 sm:w-auto sm:grid-cols-3">
               <TabsTrigger value="eye">
                 <Eye className="mr-2 h-4 w-4" />
-                Eye Health
+                眼部健康
               </TabsTrigger>
               <TabsTrigger value="posture">
                 <Activity className="mr-2 h-4 w-4" />
-                Posture & Focus
+                姿势与专注力
               </TabsTrigger>
               <TabsTrigger value="emotion">
                 <HeartPulse className="mr-2 h-4 w-4" />
-                Emotional Well-being
+                情绪健康
               </TabsTrigger>
             </TabsList>
             <TabsContent value="eye" className="mt-6">

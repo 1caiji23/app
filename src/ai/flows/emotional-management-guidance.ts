@@ -38,18 +38,18 @@ const prompt = ai.definePrompt({
   name: 'emotionalManagementPrompt',
   input: {schema: EmotionalManagementInputSchema},
   output: {schema: EmotionalManagementOutputSchema},
-  prompt: `You are an AI assistant specializing in emotional management.
+  prompt: `你是一位专注于情绪管理的AI助手。所有回答请使用中文。
 
-  Based on the user's emotional change indicators and the time periods during which these changes occurred, provide tailored suggestions for managing their emotions.
+  根据用户的情绪变化指标和这些变化发生的时间段，为他们的情绪管理提供量身定制的建议。
 
-  Emotional Change Indicators: {{{emotionalChangeIndicators}}}
-  Emotional Change Time Periods: {{{emotionalChangeTimePeriods}}}
+  情绪变化指标：{{{emotionalChangeIndicators}}}
+  情绪变化时间段：{{{emotionalChangeTimePeriods}}}
 
-  Provide actionable and practical advice.
-  The suggestions should be easy to follow.
-  Make sure that the suggestions are tailored to the time periods when emotional changes were detected.
-  If the time periods are work hours, make suggestions for office; otherwise provide tips for personal life.
-  Suggestions:
+  提供可操作和实用的建议。
+  建议应易于遵循。
+  确保建议是根据检测到情绪变化的时间段量身定制的。
+  如果时间段是工作时间，请提出办公室建议；否则，请提供个人生活中的提示。
+  建议：
   `,
 });
 

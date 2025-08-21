@@ -11,12 +11,12 @@ import { Loader2 } from 'lucide-react';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 
 const emotionalValueMap: Record<string, number> = {
-  Relaxed: 5,
-  Calm: 4,
-  Neutral: 3,
-  Tired: 2,
-  Anxious: 1,
-  Stressed: 0,
+  '放松': 5,
+  '平静': 4,
+  '中性': 3,
+  '疲惫': 2,
+  '焦虑': 1,
+  '紧张': 0,
 };
 
 const emotionalChartData = emotionalData.trends.map(d => ({
@@ -44,7 +44,7 @@ export function EmotionalAnalysis() {
     } else {
       toast({
         variant: 'destructive',
-        title: 'Error',
+        title: '错误',
         description: result.error,
       });
     }
@@ -52,7 +52,7 @@ export function EmotionalAnalysis() {
   };
   
   const chartConfig = {
-    level: { label: "Emotional State", color: "hsl(var(--primary))" },
+    level: { label: "情绪状态", color: "hsl(var(--primary))" },
   };
 
   return (
@@ -60,8 +60,8 @@ export function EmotionalAnalysis() {
       <div className="lg:col-span-3">
         <Card>
           <CardHeader>
-            <CardTitle className="font-headline">Daily Emotional Trends</CardTitle>
-            <CardDescription>A visualization of your emotional state throughout the day.</CardDescription>
+            <CardTitle className="font-headline">每日情绪趋势</CardTitle>
+            <CardDescription>一天中您的情绪状态的可视化。</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[300px] w-full">
@@ -100,8 +100,8 @@ export function EmotionalAnalysis() {
       <div className="lg:col-span-2">
         <Card className="flex h-full flex-col">
           <CardHeader>
-            <CardTitle className="font-headline">AI-Powered Emotional Guidance</CardTitle>
-            <CardDescription>Receive tailored suggestions for managing your emotions.</CardDescription>
+            <CardTitle className="font-headline">AI 情绪管理指导</CardTitle>
+            <CardDescription>接收量身定制的情绪管理建议。</CardDescription>
           </CardHeader>
           <CardContent className="flex-grow">
             {loading && (
@@ -115,7 +115,7 @@ export function EmotionalAnalysis() {
             {!guidance && !loading && (
               <div className="flex h-full items-center justify-center rounded-lg border border-dashed">
                 <p className="text-center text-sm text-muted-foreground">
-                  Click the button below to get your personalized guidance.
+                  点击下方按钮获取您的个性化指导。
                 </p>
               </div>
             )}
@@ -125,10 +125,10 @@ export function EmotionalAnalysis() {
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Analyzing...
+                  分析中...
                 </>
               ) : (
-                'Generate Emotional Guidance'
+                '生成情绪指导'
               )}
             </Button>
           </CardFooter>

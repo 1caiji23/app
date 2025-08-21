@@ -38,16 +38,16 @@ export default function Home() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="font-headline text-3xl font-bold tracking-tighter">
-              Welcome Back!
+              欢迎回来！
             </h1>
             <p className="text-muted-foreground">
-              Here's a summary of your well-being status.
+              这是您的健康状况摘要。
             </p>
           </div>
           <div className="flex items-center gap-4">
              <Button asChild>
               <Link href="/analysis">
-                Behavior Data Analysis
+                行为数据分析
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -57,21 +57,21 @@ export default function Home() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Eye Usage</CardTitle>
+              <CardTitle className="text-sm font-medium">眼部使用情况</CardTitle>
               <Eye className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {averageEyeUsage.toFixed(0)} min
+                {averageEyeUsage.toFixed(0)} 分钟
               </div>
               <p className="text-xs text-muted-foreground">
-                Average daily screen time
+                平均每日屏幕使用时间
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Posture</CardTitle>
+              <CardTitle className="text-sm font-medium">坐姿</CardTitle>
               <Activity className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -79,21 +79,21 @@ export default function Home() {
                 +{totalPostureReminders}
               </div>
               <p className="text-xs text-muted-foreground">
-                Posture reminders this week
+                本周姿势提醒次数
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Focus Time</CardTitle>
+              <CardTitle className="text-sm font-medium">专注时间</CardTitle>
               <Smile className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {postureData.totalFocusDuration} min
+                {postureData.totalFocusDuration} 分钟
               </div>
               <p className="text-xs text-muted-foreground">
-                Total focus duration this week
+                本周总专注时长
               </p>
             </CardContent>
           </Card>
@@ -101,18 +101,18 @@ export default function Home() {
         <div className="grid gap-4 md:grid-cols-1">
           <Card>
             <CardHeader>
-              <CardTitle className="font-headline">Detailed Analysis</CardTitle>
+              <CardTitle className="font-headline">详细分析</CardTitle>
               <CardDescription>
-                Dive deeper into your well-being data and get personalized AI-powered insights.
+                深入研究您的健康数据并获得个性化的 AI 驱动洞察。
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="mb-4">
-                Our analysis reports cover your eye health, posture, focus, and emotional well-being. By understanding your patterns, you can make informed decisions to improve your daily life.
+                我们的分析报告涵盖您的眼部健康、姿势、注意力和情绪健康。通过了解您的模式，您可以做出明智的决定来改善您的日常生活。
               </p>
               <Button asChild>
                 <Link href="/analysis">
-                  View Full Report
+                  查看完整报告
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

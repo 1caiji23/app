@@ -1,12 +1,12 @@
 export const eyeUsageData = {
   daily: [
-    { day: 'Mon', duration: 320, reminders: 5, distance: 45 },
-    { day: 'Tue', duration: 480, reminders: 8, distance: 40 },
-    { day: 'Wed', duration: 410, reminders: 6, distance: 50 },
-    { day: 'Thu', duration: 550, reminders: 10, distance: 38 },
-    { day: 'Fri', duration: 600, reminders: 12, distance: 35 },
-    { day: 'Sat', duration: 250, reminders: 4, distance: 55 },
-    { day: 'Sun', duration: 180, reminders: 2, distance: 60 },
+    { day: '周一', duration: 320, reminders: 5, distance: 45 },
+    { day: '周二', duration: 480, reminders: 8, distance: 40 },
+    { day: '周三', duration: 410, reminders: 6, distance: 50 },
+    { day: '周四', duration: 550, reminders: 10, distance: 38 },
+    { day: '周五', duration: 600, reminders: 12, distance: 35 },
+    { day: '周六', duration: 250, reminders: 4, distance: 55 },
+    { day: '周日', duration: 180, reminders: 2, distance: 60 },
   ],
   averageDuration: 427,
   totalReminders: 47,
@@ -15,27 +15,27 @@ export const eyeUsageData = {
 
 export const postureData = {
   daily: [
-    { day: 'Mon', reminders: 10, status: 'good', focus: 240 },
-    { day: 'Tue', reminders: 15, status: 'fair', focus: 300 },
-    { day: 'Wed', reminders: 8, status: 'good', focus: 280 },
-    { day: 'Thu', reminders: 20, status: 'poor', focus: 320 },
-    { day: 'Fri', reminders: 18, status: 'fair', focus: 350 },
-    { day: 'Sat', reminders: 5, status: 'excellent', focus: 120 },
-    { day: 'Sun', reminders: 3, status: 'excellent', focus: 90 },
+    { day: '周一', reminders: 10, status: '良好', focus: 240 },
+    { day: '周二', reminders: 15, status: '一般', focus: 300 },
+    { day: '周三', reminders: 8, status: '良好', focus: 280 },
+    { day: '周四', reminders: 20, status: '差', focus: 320 },
+    { day: '周五', reminders: 18, status: '一般', focus: 350 },
+    { day: '周六', reminders: 5, status: '优秀', focus: 120 },
+    { day: '周日', reminders: 3, status: '优秀', focus: 90 },
   ],
-  focusTimePeriods: 'Primarily between 10 AM - 1 PM and 3 PM - 6 PM on weekdays.',
+  focusTimePeriods: '主要在工作日的上午10点到下午1点和下午3点到6点。',
   totalFocusDuration: 1700,
 };
 
 export const emotionalData = {
   trends: [
-    { time: '9 AM', indicator: 'Calm' },
-    { time: '11 AM', indicator: 'Stressed' },
-    { time: '1 PM', indicator: 'Neutral' },
-    { time: '3 PM', indicator: 'Anxious' },
-    { time: '5 PM', indicator: 'Tired' },
-    { time: '7 PM', indicator: 'Relaxed' },
+    { time: '上午9点', indicator: '平静' },
+    { time: '上午11点', indicator: '紧张' },
+    { time: '下午1点', indicator: '中性' },
+    { time: '下午3点', indicator: '焦虑' },
+    { time: '下午5点', indicator: '疲惫' },
+    { time: '下午7点', indicator: '放松' },
   ],
-  changeIndicators: 'User reports feelings of stress and anxiety during peak work hours, followed by tiredness. Calmness and relaxation are more common in the morning and evening.',
-  timePeriods: 'Work hours (10 AM - 5 PM) show higher stress. Evenings (post 6 PM) show positive emotional shifts.',
+  changeIndicators: '用户报告在工作高峰时段有紧张和焦虑感，随后感到疲惫。早上和晚上更常见的是平静和放松。',
+  timePeriods: '工作时段（上午10点 - 下午5点）显示出较高的压力。晚上（下午6点后）显示出积极的情绪转变。',
 };
