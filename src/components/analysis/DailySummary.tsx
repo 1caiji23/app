@@ -51,7 +51,7 @@ export function DailySummary() {
   };
 
   return (
-    <Card className="wavy-border">
+    <Card>
       <CardHeader>
         <CardTitle className="font-headline text-2xl">今日健康总结</CardTitle>
         <CardDescription>猫头鹰博士根据您今日的数据给出的健康速览。</CardDescription>
