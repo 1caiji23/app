@@ -18,6 +18,7 @@ import {
   eyeUsageData,
   postureData,
 } from '@/lib/data';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
   const averageEyeUsage =
@@ -50,7 +51,7 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
+          <Card className="lace-border">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">眼部使用情况</CardTitle>
               <Eye className="h-4 w-4 text-muted-foreground" />
@@ -64,7 +65,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="lace-border">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">坐姿</CardTitle>
               <Activity className="h-4 w-4 text-muted-foreground" />
@@ -78,7 +79,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="lace-border">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">专注时间</CardTitle>
               <Smile className="h-4 w-4 text-muted-foreground" />

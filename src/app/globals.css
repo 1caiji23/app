@@ -86,3 +86,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .lace-border {
+    border: 10px solid transparent;
+    border-image: repeating-linear-gradient(45deg, #f06, #f06 5px, transparent 5px, transparent 10px, #0cf 10px, #0cf 15px, transparent 15px, transparent 20px) 20;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+  }
+}
