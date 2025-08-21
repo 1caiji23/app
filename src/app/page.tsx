@@ -4,9 +4,7 @@ import {
   ArrowRight,
   Eye,
   Smile,
-  User,
 } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -19,7 +17,6 @@ import { Header } from '@/components/Header';
 import {
   eyeUsageData,
   postureData,
-  emotionalData,
 } from '@/lib/data';
 
 export default function Home() {
@@ -110,12 +107,12 @@ export default function Home() {
               <p className="mb-4">
                 我们的分析报告涵盖您的眼部健康、姿势、注意力和情绪健康。通过了解您的模式，您可以做出明智的决定来改善您的日常生活。
               </p>
-              <Button asChild>
-                <Link href="/analysis">
+              <Link href="/analysis">
+                <Button>
                   查看完整报告
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>
