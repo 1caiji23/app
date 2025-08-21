@@ -1,3 +1,4 @@
+
 export const eyeUsageData = {
   daily: [
     { day: '周一', duration: 320, reminders: 5, distance: 45 },
@@ -8,9 +9,24 @@ export const eyeUsageData = {
     { day: '周六', duration: 250, reminders: 4, distance: 55 },
     { day: '周日', duration: 180, reminders: 2, distance: 60 },
   ],
-  averageDuration: 427,
-  totalReminders: 47,
-  averageDistance: 46,
+  get averageDuration() {
+    return this.daily.reduce((acc, cur) => acc + cur.duration, 0) / this.daily.length;
+  },
+  get totalReminders() {
+    return this.daily.reduce((acc, cur) => acc + cur.reminders, 0);
+  },
+  get averageDistance() {
+    return this.daily.reduce((acc, cur) => acc + cur.distance, 0) / this.daily.length;
+  },
+  get longestDuration() {
+    return Math.max(...this.daily.map(d => d.duration));
+  },
+  get farthestDistance() {
+    return Math.max(...this.daily.map(d => d.distance));
+  },
+  get nearestDistance() {
+    return Math.min(...this.daily.map(d => d.distance));
+  }
 };
 
 export const postureData = {
