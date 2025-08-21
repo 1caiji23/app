@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import { BackgroundSelector } from '@/components/BackgroundSelector';
 
 export const metadata: Metadata = {
   title: 'InsightWell',
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         {children}
         <Toaster />
+        <BackgroundSelector />
       </body>
     </html>
   );
