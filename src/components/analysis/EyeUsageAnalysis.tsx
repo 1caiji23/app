@@ -83,7 +83,7 @@ export function EyeUsageAnalysis() {
               <div className="rounded-lg border bg-secondary/50 p-4 text-sm">{tips}</div>
             )}
             {!tips && !loading && (
-              <div className="flex h-full items-center justify-center rounded-lg border border-dashed p-4">
+              <div className="flex h-full min-h-[150px] items-center justify-center rounded-lg border border-dashed p-4">
                 <p className="text-center text-sm text-muted-foreground">
                   点击下方按钮生成您的个性化提示。
                 </p>
