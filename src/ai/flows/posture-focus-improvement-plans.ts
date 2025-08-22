@@ -7,73 +7,58 @@
  * - PostureFocusOutput - The return type for the postureFocusImprovementPlans function.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { ai } from '@/ai/genkit';
+import { z } from 'zod';
 
 const PostureFocusInputSchema = z.object({
-  totalReminderCount: z
-    .number()
-    .describe('The total number of posture reminders triggered over the week.'),
-  mostFrequentStatus: z
-    .string()
-    .describe('The most frequent posture status observed during the week.'),
-  longestCorrectDuration: z
-    .number()
-    .describe('The longest single-day duration of correct posture in minutes.'),
-  dailyData: z
-    .string()
-    .describe('JSON string of daily posture data (reminders, status, focus duration).'),
+  averageReminders: z.number().describe('平均每日姿势提醒次数'),
+  longestStreak: z.number().describe('最长连续专注时间，单位分钟'),
+  totalFocusTime: z.number().describe('每周总专注时间，单位分钟'),
+  postureStatus: z.string().describe('主要姿势状态'),
+  focusScore: z.number().describe('每周平均专注评分0-100'),
 });
 export type PostureFocusInput = z.infer<typeof PostureFocusInputSchema>;
 
 const PostureFocusOutputSchema = z.object({
-  postureRecommendations: z
-    .string()
-    .describe('Personalized recommendations for posture correction.'),
-  focusRecommendations: z
-    .string()
-    .describe('Personalized recommendations for focus enhancement.'),
+  plan: z.string().describe('个性化姿势和专注力改善计划'),
 });
 export type PostureFocusOutput = z.infer<typeof PostureFocusOutputSchema>;
 
 export async function postureFocusImprovementPlans(input: PostureFocusInput): Promise<PostureFocusOutput> {
-  return postureFocusImprovementPlansFlow(input);
-}
+  try {
+    const validatedInput = PostureFocusInputSchema.parse(input);
+    
+    const prompt = `你是一位姿势与专注力改善专家。所有回答请使用中文。
 
-const prompt = ai.definePrompt({
-  name: 'postureFocusImprovementPrompt',
-  input: {schema: PostureFocusInputSchema},
-  output: {schema: PostureFocusOutputSchema},
-  prompt: `你是一位专注于姿势矫正和专注力提升的健康专家。所有回答请使用中文。
+根据以下用户的姿势和专注力数据，制定一个个性化的改善计划：
 
-  根据用户的姿势和专注力数据，为姿势矫正和专注力提升提供个性化建议。
+数据摘要:
+- 平均每日姿势提醒: ${validatedInput.averageReminders} 次
+- 最长连续专注时间: ${validatedInput.longestStreak} 分钟
+- 每周总专注时间: ${validatedInput.totalFocusTime} 分钟
+- 主要姿势状态: ${validatedInput.postureStatus}
+- 每周平均专注评分: ${validatedInput.focusScore}/100
 
-  请考虑以下每周摘要和每日详细信息：
+提供一个简洁、可执行的改善计划，包括具体的练习方法和时间安排建议。计划不超过4句话。
 
-  每周摘要：
-  - 本周姿势提醒总次数：{{{totalReminderCount}}}
-  - 本周最频繁的姿势状态：'{{{mostFrequentStatus}}}'
-  - 单日最长正确姿势（专注）时长：{{{longestCorrectDuration}}} 分钟
+请直接返回计划文本，不要包含其他格式。`;
 
-  每日详细数据 (JSON格式):
-  \`\`\`json
-  {{{dailyData}}}
-  \`\`\`
+    const response = await ai.chat([
+      { role: 'system', content: '你是一位姿势和专注力改善专家，请用中文提供专业的改善建议。' },
+      { role: 'user', content: prompt }
+    ], {
+      temperature: 0.7,
+      max_tokens: 300,
+    });
 
-  为姿势和专注力两方面提供具体且可操作的建议。
-  - 基于最频繁的姿势状态和提醒次数，提供有助于纠正姿势的技巧。
-  - 基于专注时长数据和每日趋势，提供有助于用户更好地专注的技巧。
-  `,
-});
+    const plan = response || '暂时无法提供计划，请稍后再试。';
 
-const postureFocusImprovementPlansFlow = ai.defineFlow(
-  {
-    name: 'postureFocusImprovementPlansFlow',
-    inputSchema: PostureFocusInputSchema,
-    outputSchema: PostureFocusOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
+    return { plan };
+    
+  } catch (error) {
+    console.error('获取姿势改善计划失败:', error);
+    return {
+      plan: '获取姿势改善计划时遇到问题。建议：每小时起身活动2-3分钟，保持正确坐姿，使用番茄工作法提高专注力。',
+    };
   }
-);
+}
